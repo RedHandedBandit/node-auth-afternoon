@@ -9,15 +9,19 @@ class App extends Component {
     this.state = {
       user: {}
     }
+    this.updateUser = this.updateUser.bind(this)
   }
-  updateUser () {
+  updateUser (user) {
     // this should update the user property on state
+    this.setState({
+      user
+    })
   }
   render() {
     return (
       <div className="App">
-        <Header user={{}} updateUser={()=>{}}/>
-        <Container user={{}}/>
+        <Header user={this.state.user} updateUser={this.updateUser}/>
+        <Container user={this.state.user}/>
       </div>
     );
   }
